@@ -8,7 +8,7 @@ router.get("/", (req, res) => res.sendFile(__dirname + "/home.html"));
 
 router.get("/about", (req, res) => res.send ("<h1>This is the about page</h1>"));
 
-router.get('/contact', (req, res) => res.send ('<h1>This is contact page</h1>'));
+router.get('/contact', (req, res) => res.sendFile(__dirname + '/contact.html'));
 
 router.get('/date', (req, res) => res.sendFile(__dirname + '/date.html'));
 
