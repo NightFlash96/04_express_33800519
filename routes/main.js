@@ -4,32 +4,21 @@ const router = express.Router();
 
 // Handle the main routes
 
-router.get("/", (req, res) => res.send("Hello World!")); 
+router.get("/", (req, res) => res.sendFile(__dirname + "/home.html")); 
 
 router.get("/about", (req, res) => res.send ("<h1>This is the about page</h1>"));
 
-// New route for about page
-router.get('/about', (req, res) => res.send ('<h1>This is about page</h1>'))
+router.get('/contact', (req, res) => res.send ('<h1>This is contact page</h1>'));
 
-// New route for contact page
-router.get('/contact', (req, res) => res.send ('<h1>This is contact page</h1>'))
+router.get('/date', (req, res) => res.sendFile(__dirname + '/date.html'));
 
-// Live date
-function updateDate() {
-    document.getElementById("date").textContent = new Date().toString();
-    setInterval(updateDate, 1000);
-    return;
-}
+// router.get('/date', (req, res) => {
+//     const currentDate = new Date().toString();
+//     res.send (
+//         `<h1>This is date page</h1>
+//         <p id="date">${currentDate}</p>`)
+// });
 
-// New route for date page
-router.get('/date', (req, res) => res.send (
-    `<h1>This is date page</h1>
-    
-    <p id="date">
-        <script>
-            updateDate();
-        </script>
-    </p>`))
 
 // Export the router object so index.js can access it
 module.exports = router;
